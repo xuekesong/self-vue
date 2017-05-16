@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<script src="js/jquery.js"></script>
+		<script src="js/vue.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/animate.min.css"/>
+		<style>
+		    #box{
+		    	width: 400px;
+		    	margin: 0 auto;
+		    }
+			#div1{
+				width: 200px;
+				height: 200px;
+				background: #ff0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<input type="button" value="按钮" @click='toggle'/>
+			<div id='div1' class="animated" v-show="sign" transition="bounce"></div>
+		</div>
+		
+		<script>
+			new Vue({
+				el: '#box',
+				data: {
+					sign: true
+				},
+				methods: {
+					toggle(){  //es6事件
+						this.sign = !this.sign;
+					}
+				},
+				transitions: { //定义所有动画名称
+					bounce: {
+						enterClass: 'zoomInLeft',
+						leaveClass: 'zoomOutRight'
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
