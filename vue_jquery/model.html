@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	  #remark{
+	    width: 300px;
+	    margin: 100px 200px;
+	    border: 1px solid #ff0;
+	  }
+	</style>
+	<script src="js/jquery.js"></script>
+	<script src="js/vue.min.js"></script>
+  </head>
+  <body>
+	<div id="remark">
+	  <input type="text" :value="remark" v-on:input="a = $event"/>
+	  {{a}}
+	</div>
+	
+	<script>
+	  new Vue({
+	  	el: '#remark',
+	  	data: {
+	  	  remark: '备注',
+	  	  a: 'sd'
+	  	}
+	  })
+	</script>
+  </body>
+</html>

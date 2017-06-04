@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	  #remark{
+	    width: 300px;
+	    margin: 100px 200px;
+	    height: 300px;
+	    border: 1px solid #ff0;
+	  }
+	  span{
+	  	display: block;
+	  	color: #F0AD4E;
+	  }
+	  .modify_remark{
+	  	width: 300px;
+	  	height: 40px;
+	  }
+	</style>
+	<script src="js/jquery.js"></script>
+	<script src="js/vue.min.js"></script>
+  </head>
+  <body>
+	<div id="remark">
+	  <span v-on:click="toggle()">click</span>
+	  <remark v-show="show" :remark="remark" :show="show"></remark>
+	</div>
+	
+	<script>
+	  Vue.component('remark',{
+	  	props: ['remark','show'],
+	  	template: `<div class="modify_remark">
+	  	  <input type="text" :value="remark"/>
+	  	  <button v-on:click="save()">保存</button>
+	  	  <button>取消</button>
+	  	</div>
+	  	`,
+	  	methods: {
+	  	  save() {
+	  	  	this.show = false;
+	  	  	$.ajax({
+	  	  	  url: './js/new_file.json',
+	  	  	  type: 'GET',
+	  	  	  data: {
+	  	  	  	"remark": this.remark
+	  	  	  },
+	  	  	  success: function (res) {
+	  	  	  	console.log(res)
+	  	  	  },
+	  	  	  error: function () {
+	  	  	  	
+	  	  	  }
+	  	  	})
+	  	  }
+	  	}
+	  })
+	  new Vue({
+	  	el: '#remark',
+	  	data: {
+	  	  remark: '备注',
+	  	  show: false
+	  	},
+	  	methods: {
+	  	  toggle() {
+	  	  	this.show = !this.show;
+	  	  	var self = this;
+	  	  	$.ajax({
+	  	  	  url: './js/new_file.json',
+	  	  	  type: 'GET',
+	  	  	  success: function (res) {
+	  	  	  	self.remark = res.data.remark;
+	  	  	  },
+	  	  	  error: function () {
+	  	  	  	
+	  	  	  }
+	  	  	})
+	  	  }
+	  	}
+	  })
+	</script>
+  </body>
+</html>
