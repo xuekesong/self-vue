@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="js/jquery.js"></script>
+	<script src="js/vue.min.js"></script>
+  </head>
+  <body>
+  	<div id="slot-box">
+  	  <templat-slot>
+  	  	<p class="slot-box__main__content">我是一个p标签</p>
+  	  </templat-slot>
+  	</div>
+  	
+  	<script>
+  	  //组件中的slot标签里面的具体内容，可以在组件中直接定义，
+  	  //HTML中的p标签的类名和js组件中slot的类名可加可不加
+  	  //但是，如果只在html的组件中写了内容，但是js中的组件中没有写slot,那么html中写的内容是不会在浏览器中渲染出来的
+  	  Vue.component('templat-slot', {
+  	  	props: [],
+  	  	template: `
+  	  	  <div class="slot-box__main">
+  	  	    <slot class="slot-box__main__content"></slot>
+  	  	  </div>
+  	  	`
+  	  })
+  	  new Vue({
+  	  	el: '#slot-box'
+  	  })
+  	</script>
+  </body>
+</html>
