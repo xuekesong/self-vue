@@ -60,16 +60,18 @@
   </head>
   <body>
 	<div id="nsset">
-	  <vue-swiper :swiperArr='swiperArr' :swiperEle="swiperEle"></vue-swiper>
+	  <vue-swiper :swiperArr='swiperArr' :swiperEle="swiperEle">
+	  	<div class="swiper-slide" v-for="item in swiperArr">{{item}}</div>
+	  </vue-swiper>
 	  <vue-count-down></vue-count-down>
 	</div>
 	<script type="text/javascript">
 	  Vue.component('vue-swiper', {
-			props: ['swiperArr','swiperEle'],
+			props: [],
 			template: `
-			  <div class="swiper-container" :swiperArr="swiperArr">
-	        <div class="swiper-wrapper" v-for="item in swiperArr">
-            <div class="swiper-slide"></div>
+			  <div class="swiper-container">
+	        <div class="swiper-wrapper">
+            <slot></slot>
 	        </div>
 	        
 	        <!-- Add Pagination -->
