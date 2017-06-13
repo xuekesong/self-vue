@@ -4,17 +4,19 @@
   height: 300px;
   border: 1px solid #ff0;
   background: #eee;
+  position: relative;
 }
 span{
   display: block;
   color: #F0AD4E;
-  padding-left: 20px;
   padding-top: 10px;
 }
 .modify_remark{
   width: 275px;
   height: 40px;
-  background: #fff;
+  background: #FFFF00;
+  position: absolute;
+  left: 0;
 }
 .modify_remark:before{
   content: "";
@@ -22,6 +24,6 @@ span{
   width: 0;
   height: 0;
   border-left: 10px solid transparent;
-  border-top: 10px solid #FF0000;
+  border-bottom: 10px solid #fff;
   border-right: 10px solid transparent;
 }
