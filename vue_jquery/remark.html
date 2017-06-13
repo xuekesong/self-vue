@@ -12,73 +12,8 @@
 	    <span v-on:click="toggle()">click</span>
 	    <remark v-show="show" :remark="remark" :show="show" v-on:change="change_show = $event"></remark>
 	  </div>
-	
-	  <script>
-		  Vue.component('remark',{
-		  	props: ['remark','show'],
-		  	template: `<div class="modify-remark">
-		  	  <input type="text" :value="remark" class="modify-remark__input"/>
-		  	  <button v-on:click="save()">保存</button>
-		  	  <button v-on:click="change_show()">取消</button>
-		  	</div>
-		  	`,
-		  	data: function () {
-		  		return {
-		  			hide: true
-		  		}
-		  	},
-		  	watch: {
-		  		hide(){
-		  			this.$emit('change_show', this.hide);
-		  		}
-		  	},
-		  	methods: {
-		  		change_show() {
-		  			$(".modify-remark").hide();
-		  		},
-		  	  save() {
-		  	  	this.hide != this.hide;
-		  	  	$(".modify-remark").hide();
-		  	  	var new_remark = $(".modify-remark__input").val();
-		  	  	$.ajax({
-		  	  	  url: './js/new_file.json',
-		  	  	  type: 'GET',
-		  	  	  data: {
-		  	  	  	"remark": new_remark
-		  	  	  },
-		  	  	  success: function (res) {
-		  	  	  	console.log(res)
-		  	  	  },
-		  	  	  error: function () {
-		  	  	  	
-		  	  	  }
-		  	  	})
-		  	  }
-		  	}
-		  })
-		  new Vue({
-		  	el: '#remark',
-		  	data: {
-		  	  remark: '备注',
-		  	  show: false
-		  	},
-		  	methods: {
-		  	  toggle() {
-		  	  	this.show = !this.show;
-		  	  	var self = this;
-		  	  	$.ajax({
-		  	  	  url: './js/new_file.json',
-		  	  	  type: 'GET',
-		  	  	  success: function (res) {
-		  	  	  	self.remark = res.data.remark;
-		  	  	  },
-		  	  	  error: function () {
-		  	  	  	
-		  	  	  }
-		  	  	})
-		  	  }
-		  	}
-		  })
-		</script>
+	  
+	  <script src="js/remark.js"></script>
+	  <script src="js/commonent.js"></script>
   </body>
 </html>
