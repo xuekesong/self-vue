@@ -1,0 +1,27 @@
+#remark{
+  width: 300px;
+  margin: 100px 200px;
+  height: 300px;
+  border: 1px solid #ff0;
+  background: #eee;
+}
+span{
+  display: block;
+  color: #F0AD4E;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+.modify_remark{
+  width: 275px;
+  height: 40px;
+  background: #fff;
+}
+.modify_remark:before{
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-top: 10px solid #FF0000;
+  border-right: 10px solid transparent;
+}
