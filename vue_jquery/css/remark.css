@@ -11,14 +11,14 @@ span{
   color: #F0AD4E;
   padding-top: 10px;
 }
-.modify_remark{
+.modify-remark{
   width: 275px;
   height: 40px;
   background: #FFFF00;
   position: absolute;
   left: 0;
 }
-.modify_remark:before{
+.modify-remark:before{
   content: "";
   display: block;
   width: 0;
