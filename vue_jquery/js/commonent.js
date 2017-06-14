@@ -3,8 +3,8 @@ Vue.component('remark',{
   template: `
     <div class="modify-remark">
   	  <input type="text" :value="remark" class="modify-remark__input"/>
-  	  <button v-on:click="save()">保存</button>
-  	  <button v-on:click="change_show()">取消</button>
+  	  <a v-on:click="save()" class="modify-remark__determine">确定</a>
+  	  <a v-on:click="change_show()" class="modify-remark__cancel">取消</a>
   	</div>
   `,
   methods: {

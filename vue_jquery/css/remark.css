@@ -10,20 +10,43 @@ span{
   display: block;
   color: #F0AD4E;
   padding-top: 10px;
+  cursor: pointer;
 }
 .modify-remark{
-  width: 275px;
-  height: 40px;
-  background: #FFFF00;
+  width: 284px;
+  height: 53px;
+  background: #fff;
+  border: 1px solid #F3F3F3;
+  border-radius: 4px;
   position: absolute;
   left: 0;
+  top: 38px;
 }
 .modify-remark:before{
   content: "";
   display: block;
   width: 0;
   height: 0;
+  position: absolute;
+  left: 10px;
+  top: -10px;
+  /*background: #fff;*/
+  border: 1px solid #f3f3f3;
   border-left: 10px solid transparent;
   border-bottom: 10px solid #fff;
   border-right: 10px solid transparent;
+}
+.modify-remark__input{
+	width: 183px;
+	height: 26px;
+	border: 1px solid #F3F3F3;
+	margin-top: 12px;
+	margin-left: 10px;
+}
+.modify-remark__determine{
+	color: #007AFF;
+	font-size: 14px;
+}
+.modify-remark__cancel{
+	font-size: 14px;
 }
