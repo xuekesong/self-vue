@@ -7,23 +7,14 @@ Vue.component('remark',{
   	  <button v-on:click="change_show()">取消</button>
   	</div>
   `,
-  data: function () {
-    return {
-  	  hide: true
-  	}
-  },
-  watch: {
-  	hide(){
-  	  this.$emit('change_show', this.hide);
-  	}
-  },
   methods: {
   	change_show() {
-      $(".modify-remark").hide();
+      this.show = false;
+  	  this.$emit('show_hide',this.show)
   	},
   	save() {
-  	  this.hide != this.hide;
-  	  $(".modify-remark").hide();
+  	  this.show = false;
+  	  this.$emit('show_hide',this.show)
   	  var new_remark = $(".modify-remark__input").val();
   	  $.ajax({
   	    url: './js/new_file.json',

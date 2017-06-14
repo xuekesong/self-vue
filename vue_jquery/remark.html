@@ -10,7 +10,7 @@
   <body>
 	  <div id="remark">
 	    <span v-on:click="toggle()">click</span>
-	    <remark v-show="show" :remark="remark" :show="show" v-on:change="change_show = $event"></remark>
+	    <remark v-show="show" :remark="remark" :show="show" v-on:show_hide="show = $event"></remark>
 	  </div>
 	  
 	  <script src="js/remark.js"></script>
