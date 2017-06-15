@@ -6,13 +6,7 @@
   background: #eee;
   position: relative;
 }
-span{
-  display: block;
-  color: #F0AD4E;
-  padding-top: 10px;
-  cursor: pointer;
-}
-.modify-remark{
+.modify-remark__describle{
   width: 284px;
   height: 53px;
   background: #fff;
@@ -22,7 +16,7 @@ span{
   left: 0;
   top: 38px;
 }
-.modify-remark:before{
+.modify-remark__describle:after{
   content: "";
   display: block;
   width: 0;
@@ -37,16 +31,32 @@ span{
   border-right: 10px solid transparent;
 }
 .modify-remark__input{
-	width: 183px;
-	height: 26px;
-	border: 1px solid #F3F3F3;
-	margin-top: 12px;
-	margin-left: 10px;
+  width: 183px;
+  height: 26px;
+  border: 1px solid #F3F3F3;
+  margin-top: 12px;
+  margin-left: 10px;
 }
 .modify-remark__determine{
-	color: #007AFF;
-	font-size: 14px;
+  color: #007AFF;
+  font-size: 14px;
 }
 .modify-remark__cancel{
-	font-size: 14px;
+  font-size: 14px;
+}
+.modify-remark__content__icon{
+  /*background-image: url(../../../images/oms_manager/icon-edit.png);*/
+  width: 11px;
+  height: 10px;
+  display: inline-block;
+  background-size: contain;
+  align-self: center;
+  cursor: pointer;
+}
+.modify-remark__content{
+  display: flex;
+  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

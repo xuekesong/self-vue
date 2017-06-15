@@ -1,31 +1,45 @@
-Vue.component('remark',{
-  props: ['remark','show'],
+Vue.component('vue-remark-modify',{
+  props: ['remark', 'ajax_url', 'ajax_data'],
   template: `
     <div class="modify-remark">
-  	  <input type="text" :value="remark" class="modify-remark__input"/>
-  	  <a v-on:click="save()" class="modify-remark__determine">确定</a>
-  	  <a v-on:click="change_show()" class="modify-remark__cancel">取消</a>
-  	</div>
+      <div class="modify-remark__content">
+        <span class="modify-remark__content__value" v-text="remark"></span>
+        <a class="modify-remark__content__icon" v-on:click="toggle()">er</a>
+      </div>
+      <div class="modify-remark__describle" v-show="show_remark">
+  	    <input type="text" :value="''" class="modify-remark__input" maxlength="200"/>
+  	    <a v-on:click="save()" class="modify-remark__determine">确定</a>
+  	    <a v-on:click="change_show()" class="modify-remark__cancel">取消</a>
+  	  </div>
+    </div>
   `,
+  data: function () {
+  	return {
+  	  show_remark: true
+  	}
+  },
   methods: {
+  	toggle() {
+  	  if (true == this.show_remark) {
+  	  	this.show_remark = false;
+  	  } else {
+  	  	this.show_remark = true;
+  	  }
+  	},
   	change_show() {
-      this.show = false;
-  	  this.$emit('show_hide',this.show)
+      this.show_remark = false;
   	},
   	save() {
-  	  this.show = false;
-  	  this.$emit('show_hide',this.show)
+  	  this.show_remark = false;
   	  var new_remark = $(".modify-remark__input").val();
   	  $.ajax({
-  	    url: './js/new_file.json',
+  	    url: this.ajax_url+'?remark=' + new_remark,
   	    type: 'GET',
-  	    data: {
-  	   	  "remark": new_remark
-  	  	},
-  	  	success: function (res) {
+  	    data: this.ajax_data,
+  	  	success(res) {
   	  	  console.log(res)
   	  	},
-  	  	error: function () {
+  	  	error() {
   	  	  	
   	  	}
   	  })
